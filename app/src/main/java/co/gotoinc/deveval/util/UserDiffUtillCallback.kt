@@ -1,14 +1,13 @@
-package eu.gotoinc.kotlinmvvm.util
+package co.gotoinc.deveval.util
 
 import androidx.recyclerview.widget.DiffUtil
-import eu.gotoinc.kotlinmvvm.repository.datamodel.response.UserResponse
+import co.gotoinc.deveval.model.Post
 
-class UserDiffUtillCallback : DiffUtil.ItemCallback<UserResponse>() {
-    override fun areItemsTheSame(oldItem: UserResponse, newItem: UserResponse): Boolean = oldItem == newItem
+class PostDiffUtillCallback : DiffUtil.ItemCallback<Post>() {
+    override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean = oldItem == newItem
 
-    override fun areContentsTheSame(oldItem: UserResponse, newItem: UserResponse): Boolean =
-        oldItem.avatar.equals(newItem.avatar, false)
-                && oldItem.lastName.equals(newItem.lastName, false)
-                && oldItem.lastName.equals(newItem.lastName, false)
+    override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean =
+        oldItem.title.equals(newItem.title, false)
+                && oldItem.createdAt == newItem.createdAt
 
 }
